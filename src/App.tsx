@@ -8,12 +8,11 @@ function App() {
 
   return (
     <div className={appContainer}>
-      <div className={board}>
-        <BoardList
-          activeBoardId={activeBoardId}
-          setActiveBoardId={setActivBoardId}
-        ></BoardList>
-      </div>
+      <BoardList
+        activeBoardId={activeBoardId}
+        setActiveBoardId={setActivBoardId}
+      ></BoardList>
+      <div className={board}></div>
 
       <div className={buttons}>
         <button>이 게시판 삭제하기</button>
