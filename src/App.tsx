@@ -1,10 +1,18 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+//import reactLogo from "./assets/react.svg";
 import { appContainer, board, buttons } from "./App.css";
 import BoardList from "./components/BoardList/BoardList";
+import ListsContainer from "./components/ListsContainer/ListsContainer";//
+import { useTypedSelector } from "./hooks/redux";//
 
 function App() {
   const [activeBoardId, setActivBoardId] = useState("board-0");
+
+  const boards = useTypedSelector(state => state.boards.boardArray);//
+
+  const getActiveBoard = boards.filter(board => board.boardId === activeBoardId)[0];//
+  
+  const lists = getActiveBoard.lists;//
 
   return (
     <div className={appContainer}>
@@ -13,7 +21,7 @@ function App() {
         setActiveBoardId={setActivBoardId}
       ></BoardList>
       <div className={board}></div>
-
+        <ListsContainer lists={lists} boardId={getActiveBoard.boardId} />//
       <div className={buttons}>
         <button>이 게시판 삭제하기</button>
         <button></button>
