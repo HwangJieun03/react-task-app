@@ -4,6 +4,7 @@ import { addList, addTask } from "../../../store/slices/boardsSlice";
 import { v4 } from "uuid";
 import { addLog } from "../../../store/slices/loggerSlice";
 import { FiX } from "react-icons/fi";
+import { button, buttons, close, input, listForm, taskForm } from "./DropDownForm.css";
 
 
 type TDropDownFormProps = {
@@ -70,17 +71,18 @@ const DropDownForm: FC<TDropDownFormProps> = ({
     }
   };
   return (
-    <div>
+    <div className={list?listForm:taskForm}>
       <textarea
+        className={input}
         value={text}
         onChange={handleTextChange}
         autoFocus
         placeholder={formPlaceholder}
         onBlur={() => setIsFormOpen(false)}
       ></textarea>
-      <div>
-        <button onMouseDown={handleButtonClick}>{buttonTitle}</button>
-        <FiX/>
+      <div className={buttons}>
+        <button className={button} onMouseDown={handleButtonClick}>{buttonTitle}</button>
+        <FiX className={close}/>
       </div>
     </div>
   );
