@@ -13,7 +13,7 @@ export const vars = createGlobalTheme(":root", {
     darkText: "rgb(24,42,77)",
     secondaryDarkText: "rgb(94,108,132)",
     secondaryDarkTextHover: "rgb(218,219,226)",
-    selectedTab: "rgb(237,180,88)",
+    selectedTab: "rgb(137,176,174)",
     updateButton: "rgb(237,180,88)",
     delteButton: "rgb(237,51,88)",
   },
@@ -43,20 +43,20 @@ export const vars = createGlobalTheme(":root", {
 });
 
 export const appContainer = style({
-    display : 'flex',
-    flexDirection : 'column',
-    minHeight : '100vh',
-    height : 'max-content',
-    width : '100vw'
-})
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
+  height: "max-content",
+  width: "100vw",
+});
 
 export const board = style({
-    display : 'flex',
-    flexDirection : 'row',
-    height : '100%',
-})
+  display: "flex",
+  flexDirection: "row",
+  height: "100%",
+});
 
 export const buttons = style({
-    marginTop : 'auto',
-    paddingLeft : vars.spacing.big2
-})
+  marginTop: "auto",
+  paddingLeft: vars.spacing.big2,
+});
