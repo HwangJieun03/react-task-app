@@ -15,6 +15,7 @@ import LoggerModal from "./components/LoggerModal/LoggerModal";
 import { deleteBoard } from "./store/slices/boardsSlice";
 import { v4 } from "uuid";
 import { addLog } from "./store/slices/loggerSlice";
+import { DragDropContext } from "@hello-pangea/dnd";
 
 function App() {
   const dispatch = useTypedDispatch();
@@ -58,6 +59,7 @@ function App() {
     }
   };
 
+  const handleDragEnd = () => {};
   return (
     <div className={appContainer}>
       {isLoggerOpen ? <LoggerModal setIsLoggerOpen={setIsLoggerOpen} /> : null}
@@ -65,9 +67,12 @@ function App() {
       <BoardList
         activeBoardId={activeBoardId}
         setActiveBoardId={setActivBoardId}
-      ></BoardList>
-      <div className={board}></div>
-      <ListsContainer lists={lists} boardId={getActiveBoard.boardId} />
+      />
+      <div className={board}>
+        <DragDropContext onDragEnd={handleDragEnd}>
+          <ListsContainer lists={lists} boardId={getActiveBoard.boardId} />
+        </DragDropContext>
+      </div>
       <div className={buttons}>
         <button className={delteBorderButton} onClick={handleDeleteBoard}>
           이 게시판 삭제하기
